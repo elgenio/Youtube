@@ -13,6 +13,15 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title="Home"
+        navigationController?.navigationBar.isTranslucent=false
+        
+        let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width - 32, height: view.frame.height))
+        titleLabel.text="Home"
+        titleLabel.textColor = UIColor.white
+        titleLabel.font = UIFont.systemFont(ofSize: 20)
+        navigationItem.titleView = titleLabel
+        
+        
         collectionView?.backgroundColor=UIColor.white
         
         collectionView?.register(VideoCell.self, forCellWithReuseIdentifier: "cellId")
@@ -28,7 +37,8 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 200)
+        let heightx = (view.frame.width - 16 - 16) * 9 / 16
+        return CGSize(width: view.frame.width, height: heightx+16+68)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -43,37 +53,43 @@ class VideoCell: UICollectionViewCell {
     }
     
     let thumbnailImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.backgroundColor=UIColor.blue
-        
+        var imageView = UIImageView()
+        imageView.image = UIImage(named:"mortadha_blank_space")!
+        imageView.contentMode =  .scaleAspectFill
+        imageView.clipsToBounds = true
+        //        imageView.layer.masksToBounds = true
         return imageView
     }()
     
     let userProfileImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor=UIColor.green
+        imageView.image=UIImage(named: "marwan_profile")
+        imageView.layer.cornerRadius = 22
+        imageView.layer.masksToBounds = true
+        
         
         return imageView
     }()
     
     let separatorView: UIView = {
         let view=UIView()
-        view.backgroundColor=UIColor.black
-        
+        view.backgroundColor=UIColor(colorLiteralRed: 230/255, green: 230/255, blue: 230/255, alpha: 1)
         return view
     }()
     
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor=UIColor.purple
         label.translatesAutoresizingMaskIntoConstraints=false
+        label.text = "Mortadha New - Ghadara Song"
         return label
     }()
     
     let subtitleTextView: UITextView = {
         let textView = UITextView()
-        textView.backgroundColor = UIColor.red
         textView.translatesAutoresizingMaskIntoConstraints=false
+        textView.text = "MortadhaOffiacial • 1,586,900 views • 2 years ago"
+        textView.textContainerInset = UIEdgeInsetsMake(0, -4, 0, 0)
+        textView.textColor = UIColor.lightGray
         return textView
     }()
     
@@ -101,7 +117,7 @@ class VideoCell: UICollectionViewCell {
         addConstraints([NSLayoutConstraint(item: titleLabel, attribute: .height, relatedBy: .equal, toItem: thumbnailImageView , attribute: .height, multiplier: 0, constant: 20)])
         
         //top constraint
-        addConstraints([NSLayoutConstraint(item: subtitleTextView, attribute: .top, relatedBy: .equal, toItem: titleLabel, attribute: .bottom, multiplier: 1, constant: 8)])
+        addConstraints([NSLayoutConstraint(item: subtitleTextView, attribute: .top, relatedBy: .equal, toItem: titleLabel, attribute: .bottom, multiplier: 1, constant: 4)])
         //left constraint
         addConstraints([NSLayoutConstraint(item: subtitleTextView, attribute: .left, relatedBy: .equal, toItem: userProfileImageView , attribute: .right, multiplier: 1, constant: 8)])
         addConstraints([NSLayoutConstraint(item: subtitleTextView, attribute: .right, relatedBy: .equal, toItem: thumbnailImageView , attribute: .right, multiplier: 1, constant: 0)])

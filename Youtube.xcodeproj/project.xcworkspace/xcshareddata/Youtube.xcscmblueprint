@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "F3728D34A59D7BDAEF781EAA543D6ECE9D332A19",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "956F74A427165AD90157A2444B30EE3EA0FA945C" : 9223372036854775807,
+    "F3728D34A59D7BDAEF781EAA543D6ECE9D332A19" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "2CF4ECE4-28A8-4327-B365-D5BF68084FCF",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "956F74A427165AD90157A2444B30EE3EA0FA945C" : "",
+    "F3728D34A59D7BDAEF781EAA543D6ECE9D332A19" : "Youtube\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Youtube",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Youtube.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/elgenio\/MyTaskList.git\/",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "956F74A427165AD90157A2444B30EE3EA0FA945C"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/elgenio\/Youtube.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F3728D34A59D7BDAEF781EAA543D6ECE9D332A19"
+    }
+  ]
+}
