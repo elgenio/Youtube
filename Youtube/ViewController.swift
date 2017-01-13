@@ -24,11 +24,15 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath)
-//        cell.backgroundColor=UIColor.red
+        //        cell.backgroundColor=UIColor.red
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: 200)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
     }
 }
 
@@ -45,15 +49,21 @@ class VideoCell: UICollectionViewCell {
         return imageView
     }()
     
+    let separatorView: UIView = {
+        let view=UIView()
+        view.backgroundColor=UIColor.black
+        view.translatesAutoresizingMaskIntoConstraints=false
+        return view
+    }()
+    
     func setupViews()  {
-//        backgroundColor=UIColor.blue
+        //        backgroundColor=UIColor.blue
         addSubview(thumbnailImageView)
+        addSubview(separatorView)
         
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-16-[v0]-16-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":thumbnailImageView]))
-        
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-16-[v0]-16-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":thumbnailImageView]))
-        
-        
+        addConstraintsWithFormat(format: "H:|-16-[v0]-16-|", views: thumbnailImageView)
+        addConstraintsWithFormat(format: "V:|-16-[v0]-16-[v1(1)]|", views: thumbnailImageView,separatorView)
+        addConstraintsWithFormat(format: "H:|[v0]|", views: separatorView)
         thumbnailImageView.frame=CGRect(x: 0, y: 0, width: 100, height: 100)
     }
     required init?(coder aDecoder: NSCoder) {
@@ -62,3 +72,14 @@ class VideoCell: UICollectionViewCell {
     
 }
 
+extension UIView{
+    func addConstraintsWithFormat(format: String, views:UIView...)  {
+        var viewsDictionary=[String:UIView]()
+        for (index,view) in views.enumerated(){
+            let key="v\(index)"
+            viewsDictionary[key]=view
+        }
+        
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: format, options: NSLayoutFormatOptions(), metrics: nil, views: viewsDictionary))
+    }
+}
