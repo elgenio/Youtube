@@ -8,12 +8,6 @@
 
 import UIKit
 
-extension UIColor {
-    static func rgb(red: Float, green: Float, blue: Float) -> UIColor {
-        return UIColor(colorLiteralRed: red/255, green: green/255, blue: blue/255, alpha: 1)
-    }
-}
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
