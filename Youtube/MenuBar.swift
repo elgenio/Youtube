@@ -21,7 +21,7 @@ class MenuBar: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UIC
     }()
     
     let cellId = "cellId"
-    let imageNames = ["home","trending","subscription","account"]
+    let imageNames = ["home","trending","subscriptions","account"]
     
     
     override init(frame: CGRect) {
@@ -94,8 +94,8 @@ class MenuCell: BaseCell{
         super.setupViews()
         
         addSubview(imageView)
-        addConstraintsWithFormat(format: "H:[v0(24)]", views: imageView)
-        addConstraintsWithFormat(format: "V:[v0(24)]", views: imageView)
+        addConstraintsWithFormat(format: "H:[v0(28)]", views: imageView)
+        addConstraintsWithFormat(format: "V:[v0(28)]", views: imageView)
         //    backgroundColor = UIColor.yellow
         
         addConstraint(NSLayoutConstraint(item: imageView, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1, constant: 0))
